@@ -1,18 +1,28 @@
-## problem 
+## Problem 
 
-The number of elements as n, set three different n at least and exhibit the corresponding solutions. Each n, give the stiffness matrix A, the vector f and the solution u. And compare FEM solution with the exact solution u(x) = 12(x − x2) by plotting them in one figure for each n
+$$−u′′(x) = 1 for 0 < x < 1$$
+
+$$u(0) = u(1) = 0$$
+
+**Program FEM to solve**
+
+- The number of elements as n, set three different n at least and exhibit the corresponding solutions. 
+
+- Each n, give the stiffness matrix A, the vector f and the solution u. 
+
+- And compare FEM solution with the exact solution u(x) = 12(x − x2) by plotting them in one figure for each n
 
 ### the fem is as follow
-at first, choose 6 different n and computing`` N = [5,10,20,50,100,200]; 
+- At first, choose 6 different n and computing`` N = [5,10,20,50,100,200]; 
 x1= zeros(201,6); ``
 
-K  is sumed by mutilple k block
+  - K  is sumed by mutilple k block
 
-f is the same sum as K
+  - f is the same sum as K
 
-u is computed by``U = K\F; ``
+  - u is computed by``U = K\F; ``
 
-finally,add 0 to fix the whole solution
+Finally, add 0 to fix the whole solution.
 ```
 %%  fem method
  for j = 1:length(N)
@@ -34,7 +44,7 @@ finally,add 0 to fix the whole solution
 ```
 
 ### visualization
-put precise solution and numerical soluton in the same figure
+- Put precise solution and numerical soluton in the same figure:
 
 ```
   %% draw
@@ -46,9 +56,10 @@ put precise solution and numerical soluton in the same figure
     ylabel('U');
     title(['数值解与精确解 N=' ,num2str(N(j))]);
 ```
+<img src="fem_compare.jpg" width = "80%" /> 
 
 ### error 
-compare the precise solution and numerical soluton, achieve error visualization
+- Compare the precise solution and numerical soluton, achieve error visualization:
 ```
  if j ==1
         x1 = 0:h:1;
